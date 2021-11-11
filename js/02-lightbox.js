@@ -6,7 +6,7 @@ const galleryContainer =document.querySelector('.gallery')
 const galleryItemMarkup = creategalleryItemMarkup(galleryItems)
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
-
+//создание макета разметки галереи
 function creategalleryItemMarkup(galleryItems) {
   return galleryItems
     .map(({ original, preview, description }) => {
@@ -24,7 +24,7 @@ function creategalleryItemMarkup(galleryItems) {
     }).join('');
  
 }
-
+//добавление свойств
 const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
   captionsData: 'alt',

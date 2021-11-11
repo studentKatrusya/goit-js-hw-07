@@ -15,36 +15,27 @@ function onClickImg(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-   
+
    const openImg = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
 `)
 
-openImg.show() 
-}
+  openImg.show()
+  window.addEventListener('keydown', onEscKeyPress);
 // выход по кнопке esc
-// const modalEl = document.querySelector('basiclightbox')
-
-// modalEl.addEventListener('click', onModalElClick);
-window.addEventListener('keydown', onEscKeyPress);
-window.removeEventListener('keydown', onEscKeyPress);
-
-// function onModalElClick(event) {
-//   if (event.currentTarget === event.target) {
-// c
-//   }
-// }
 function onEscKeyPress(event) {
   const ESC_KEY_CODE = 'Escape';
   const isEscKey = event.code === ESC_KEY_CODE;
-
+ window.removeEventListener('keydown', onEscKeyPress);
   if (isEscKey) {
-    close();
+    openImg.close();
+    
   }
 }
+}
+
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
-
 //создание макета разметки галереи
 function creategalleryItemMarkup(galleryItems) {
     return galleryItems
