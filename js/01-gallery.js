@@ -26,14 +26,13 @@ function onClickImg(event) {
 function onEscKeyPress(event) {
   const ESC_KEY_CODE = 'Escape';
   const isEscKey = event.code === ESC_KEY_CODE;
- window.removeEventListener('keydown', onEscKeyPress);
+ 
   if (isEscKey) {
     openImg.close();
-    
+  window.removeEventListener('keydown', onEscKeyPress);  
   }
 }
 }
-
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
 //создание макета разметки галереи
