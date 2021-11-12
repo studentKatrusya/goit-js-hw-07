@@ -46,7 +46,8 @@ function onClickModal() {
   window.removeEventListener("keydown", onEscKeyPress);
 } 
 
- }
+}
+ 
 galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
 //создание макета разметки галереи
 function creategalleryItemMarkup(galleryItems) {
