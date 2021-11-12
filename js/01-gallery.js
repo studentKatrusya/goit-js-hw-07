@@ -9,6 +9,11 @@ const galleryContainer =document.querySelector('.gallery')
 const galleryItemMarkup = creategalleryItemMarkup(galleryItems)
 //повесели слушателя событий на div.galler
 galleryContainer.addEventListener('click', onClickImg)
+
+  const modalEl = document.querySelector('.basiclightbox')
+console.log(modalEl);
+
+
 //делегирования на div.gallery и получение url большого изображения
 function onClickImg(event) {
  event.preventDefault();
@@ -22,18 +27,26 @@ function onClickImg(event) {
 
   openImg.show()
   window.addEventListener('keydown', onEscKeyPress);
+ const modal = document.querySelector("div.basicLightbox");
+  // вешаем на нее слушателя кликов для отключения слушателя кликов и кнопок при закрытии по клику
+  modal.addEventListener("click", onClickModal);
 // выход по кнопке esc
-function onEscKeyPress(event) {
+  function onEscKeyPress(event) {
+  // const modal = document.querySelector("div.basicLightbox");
   const ESC_KEY_CODE = 'Escape';
   const isEscKey = event.code === ESC_KEY_CODE;
- 
+console.log(event)
   if (isEscKey) {
     openImg.close();
-  window.removeEventListener('keydown', onEscKeyPress);  
+  window.addEventListener('keydown', onEscKeyPress);  
   }
 }
+function onClickModal() {
+  window.removeEventListener("click", onClickModal);
+  window.removeEventListener("keydown", onEscKeyPress);
+} 
 }
-
+ 
 galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
 //создание макета разметки галереи
 function creategalleryItemMarkup(galleryItems) {

@@ -10,7 +10,7 @@ galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
 function creategalleryItemMarkup(galleryItems) {
   return galleryItems
     .map(({ original, preview, description }) => {
-      return ` <div class = "gallery__item">
+      return ` <li class = "gallery__item">
   <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
@@ -19,7 +19,7 @@ function creategalleryItemMarkup(galleryItems) {
       alt="${description}"
     />
   </a>
-</div>`;
+</li>`;
             
     }).join('');
  
@@ -30,3 +30,19 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
 });
  
+
+
+//   const modalEl = document.querySelector('.basiclightbox')
+
+// modalEl.addEventListener('click', onModalElClick);
+
+// function onModalElClick(event) {
+//   if (event.currentTarget === event.target) {
+//     modalEl.removeEventListener('click', onModalElClick);
+//      window.removeEventListener('keydown', onEscKeyPress);
+//   }
+// }
+  
+   // function closeimg() {
+  //   window.removeEventListener('keydown', onEscKeyPress);
+  // }
