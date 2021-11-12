@@ -24,15 +24,15 @@ function onClickImg(event) {
    const openImg = basicLightbox.create(`
     <img src="${event.target.dataset.source}">
 `)
-
   openImg.show()
+
+  
   window.addEventListener('keydown', onEscKeyPress);
- const modal = document.querySelector("div.basicLightbox");
-  // вешаем на нее слушателя кликов для отключения слушателя кликов и кнопок при закрытии по клику
-  modal.addEventListener("click", onClickModal);
+ const modalEl = document.querySelector("div.basicLightbox");
+  // вешаем слушателя кликов для отключения слушателя  кнопок при закрытии по клику
+  modalEl.addEventListener("click", onClickModal);
 // выход по кнопке esc
   function onEscKeyPress(event) {
-  // const modal = document.querySelector("div.basicLightbox");
   const ESC_KEY_CODE = 'Escape';
   const isEscKey = event.code === ESC_KEY_CODE;
 console.log(event)
@@ -45,8 +45,8 @@ function onClickModal() {
   window.removeEventListener("click", onClickModal);
   window.removeEventListener("keydown", onEscKeyPress);
 } 
-}
- 
+
+ }
 galleryContainer.insertAdjacentHTML('beforeend', galleryItemMarkup);
 //создание макета разметки галереи
 function creategalleryItemMarkup(galleryItems) {
